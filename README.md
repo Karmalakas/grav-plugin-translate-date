@@ -81,6 +81,8 @@ In Twig template you have several options how to use date translations:
   
 You can force both language and format too. Eg. `{{ page.date|td('de', 'Y M l') }}`
 
+If format for your language is not found in config, it will default to ISO date + 24 hours format time - `Y-m-d H:i`
+
 ## To Do
 
 - [ ] Configure defaults through Admin
