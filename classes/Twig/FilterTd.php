@@ -129,7 +129,7 @@ class FilterTd
                 $languages
             );
 
-            if ($translation) {
+            if (!$translation) {
                 if ($char === 'F') {
                     $translation = $this->getTranslation('GRAV.MONTHS_OF_THE_YEAR', $languages);
                 } elseif ($char === 'l') {
