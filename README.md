@@ -46,6 +46,7 @@ Here is the default configuration and an explanation of available options:
 
 ```yaml
 enabled: true
+processor: basic    # `basic|intl`
 formats:
   en: 'm/d/Y h:mA'
   lt: 'Y-m-d H:i'
@@ -56,7 +57,9 @@ the `user/config/plugins/`-folder once the configuration is saved in the Admin.
 
 ## Usage
 
-You should add months and weekdays names in your language to your languages file. Eg.:
+### Basic
+
+If you use `basic` processor, you should add months and weekdays names in your language to your languages file. Eg.:
 
 ```yml
 en:
@@ -70,20 +73,30 @@ en:
 If you intend to use only full names (`F` and `l`), you can skip adding translations - these will default to Grav's core
 translations.
 
+Date format options can be found [here](https://www.php.net/manual/en/datetime.format.php).  
+If format for your language is not found in config, it will default to ISO date + 24 hours format time - `Y-m-d H:i`.
+
+
+### Intl
+
+> **NB:** Intl extension must be enabled in PHP in order to use it.
+
+Date format options can be found [here](https://unicode-org.github.io/icu/userguide/format_parse/datetime/#date-field-symbol-table).  
+If format for your language is not found in config, it will default to language based locale default format.
+
+### Examples
+
 In Twig template you have several options how to use date translations:
 - Leave to config - `{{ page.date|td }}`  
   This will take date format from config and translate months and/or weekdays if found  
   Eg. `Y-m l` will become `2021-03 Tuesday`
 - Force language - `{{ page.date|td('lt') }}`  
   Even on EN page `Y-m D` will become `2021-03 Ant`
-- Force format - `{{ page.date|td(null, 'Y M l') }}`  
-  This will output `2021 Mar Tuesday`
-  
-You can force both language and format too. Eg. `{{ page.date|td('de', 'Y M l') }}`
+- Force format - `{{ page.date|td(null, 'eeee, MMMM dd YYYY, HH:mm:ss') }}` (Intl format)  
+  This will output `Thursday, March 11 2021, 03:15:16` if Intl processor is chosen
 
-If format for your language is not found in config, it will default to ISO date + 24 hours format time - `Y-m-d H:i`
+You can force both language and format too. Eg. `{{ page.date|td('de', 'Y M l') }}`
 
 ## To Do
 
 - [ ] Configure defaults through Admin
-
