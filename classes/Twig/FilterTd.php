@@ -35,6 +35,13 @@ class FilterTd
         $this->language = $this->grav->get('language');
     }
 
+    /**
+     * @param             $date
+     * @param string|null $language
+     * @param string|null $format
+     *
+     * @return string
+     */
     public function translateDate($date, ?string $language = null, ?string $format = null)
     {
         try {
@@ -52,6 +59,47 @@ class FilterTd
             return $date;
         }
 
+        if ($this->config->get('plugins.translate-date.processor') === 'intl') {
+            return $this->translateDateIntl($date, $language, $format);
+        }
+
+        return $this->translateDateBasic($date, $language, $format);
+    }
+
+    /**
+     * @param DateTime    $date
+     * @param string|null $language
+     * @param string|null $format
+     *
+     * @return string
+     */
+    protected function translateDateIntl(DateTime $date, ?string $language = null, ?string $format = null): string
+    {
+        try {
+            $formatter = \IntlDateFormatter::create(
+                $language ?? \Locale::getDefault(),
+                \IntlDateFormatter::NONE,
+                \IntlDateFormatter::NONE,
+                \IntlTimeZone::createTimeZone($date->getTimezone()->getName()),
+                \IntlDateFormatter::TRADITIONAL,
+                $format
+            );
+
+            return $formatter->format($date->getTimestamp());
+        } catch (\Exception $exception) {
+            return $date->format($this->getFormat($language));
+        }
+    }
+
+    /**
+     * @param DateTime    $date
+     * @param string|null $language
+     * @param string|null $format
+     *
+     * @return string
+     */
+    protected function translateDateBasic(DateTime $date, ?string $language = null, ?string $format = null): string
+    {
         $format = $format ?: $this->getFormat($language);
 
         return $this->processDateTranslation($date, $format, $language);
@@ -78,7 +126,14 @@ class FilterTd
         return (string)$formats[$language];
     }
 
-    protected function processDateTranslation(DateTime $date, string $format, ?string $language = null)
+    /**
+     * @param DateTime    $date
+     * @param string      $format
+     * @param string|null $language
+     *
+     * @return string
+     */
+    protected function processDateTranslation(DateTime $date, string $format, ?string $language = null): string
     {
         $languages    = $language ? [$language] : null;
         $replacements = $this->getReplacements($date, $format, $languages);

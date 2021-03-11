@@ -5,6 +5,7 @@ namespace Grav\Plugin;
 use Composer\Autoload\ClassLoader;
 use Grav\Common\Plugin;
 use Grav\Plugin\TranslateDate\Twig\FilterTd;
+use RuntimeException;
 
 /**
  * Class TranslateDatePlugin
@@ -55,6 +56,14 @@ class TranslateDatePlugin extends Plugin
     {
         if ($this->isAdmin()) {
             return;
+        }
+
+        if (
+            $this->config->get('plugins.translate-date.enabled') === true
+            && $this->config->get('plugins.translate-date.processor') === 'intl'
+            && !class_exists('IntlDateFormatter')
+        ) {
+            throw new RuntimeException('The native PHP intl extension (http://php.net/manual/en/book.intl.php) is needed to use intl-based filters.');
         }
 
         $this->enable(

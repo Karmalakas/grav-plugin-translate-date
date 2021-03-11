@@ -1,3 +1,9 @@
+# v0.2.0
+##  03/08/2021
+
+1. [](#new)
+    * Add Intl support (may choose via config)
+
 # v0.1.1
 ##  03/09/2021
 
