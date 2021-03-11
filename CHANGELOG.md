@@ -1,5 +1,11 @@
+# v0.2.1
+##  03/11/2021
+
+1. [](#bugfix)
+   * Fix getting custom format for Intl
+
 # v0.2.0
-##  03/08/2021
+##  03/11/2021
 
 1. [](#new)
     * Add Intl support (may choose via config)

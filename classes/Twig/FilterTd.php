@@ -6,7 +6,6 @@ use DateTime;
 use Grav\Common\Config\Config;
 use \Grav\Common\Grav;
 use Grav\Common\Language\Language;
-use Grav\Common\Twig\Twig;
 
 class FilterTd
 {
@@ -59,11 +58,37 @@ class FilterTd
             return $date;
         }
 
+        $format = $format ?: $this->getFormat($language);
+
         if ($this->config->get('plugins.translate-date.processor') === 'intl') {
             return $this->translateDateIntl($date, $language, $format);
         }
 
         return $this->translateDateBasic($date, $language, $format);
+    }
+
+    /**
+     * @param string|null $language
+     *
+     * @return string
+     */
+    protected function getFormat(?string $language = null): string
+    {
+        $formats  = $this->config->get('plugins.translate-date.formats', []);
+        $language = $language ?? ($this->language->getLanguage() ?: null);
+
+        if (empty($formats[$language])) {
+            $language = $this->language->getFallbackLanguages($language, true)[0] ?? null;
+        }
+
+        if (
+            empty($formats[$language])
+            && $this->config->get('plugins.translate-date.processor') !== 'intl'
+        ) {
+            return 'Y-m-d H:i';
+        }
+
+        return $formats[$language] ?? (string)$formats[$language] :: null;
     }
 
     /**
@@ -99,41 +124,6 @@ class FilterTd
      * @return string
      */
     protected function translateDateBasic(DateTime $date, ?string $language = null, ?string $format = null): string
-    {
-        $format = $format ?: $this->getFormat($language);
-
-        return $this->processDateTranslation($date, $format, $language);
-    }
-
-    /**
-     * @param string|null $language
-     *
-     * @return string
-     */
-    protected function getFormat(?string $language = null): string
-    {
-        $formats  = $this->config->get('plugins.translate-date.formats', []);
-        $language = $language ?? ($this->language->getLanguage() ?: null);
-
-        if (empty($formats[$language])) {
-            $language = $this->language->getFallbackLanguages($language, true)[0] ?? null;
-        }
-
-        if (empty($formats[$language])) {
-            return 'Y-m-d H:i';
-        }
-
-        return (string)$formats[$language];
-    }
-
-    /**
-     * @param DateTime    $date
-     * @param string      $format
-     * @param string|null $language
-     *
-     * @return string
-     */
-    protected function processDateTranslation(DateTime $date, string $format, ?string $language = null): string
     {
         $languages    = $language ? [$language] : null;
         $replacements = $this->getReplacements($date, $format, $languages);
