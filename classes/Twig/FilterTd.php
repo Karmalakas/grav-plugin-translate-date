@@ -58,7 +58,8 @@ class FilterTd
             return $date;
         }
 
-        $format = $format ?: $this->getFormat($language);
+        $language = $language ?? $this->getLanguage();
+        $format   = $format ?: $this->getFormat($language);
 
         if ($this->config->get('plugins.translate-date.processor') === 'intl') {
             return $this->translateDateIntl($date, $language, $format);
@@ -68,41 +69,61 @@ class FilterTd
     }
 
     /**
-     * @param string|null $language
-     *
      * @return string
      */
-    protected function getFormat(?string $language = null): string
+    protected function getLanguage(): string
     {
-        $formats  = $this->config->get('plugins.translate-date.formats', []);
-        $language = $language ?? ($this->language->getLanguage() ?: null);
+        $language = $this->language->getLanguage() ?: null;
 
-        if (empty($formats[$language])) {
-            $language = $this->language->getFallbackLanguages($language, true)[0] ?? null;
+        if ($language) {
+            return $language;
         }
 
-        if (
-            empty($formats[$language])
-            && $this->config->get('plugins.translate-date.processor') !== 'intl'
-        ) {
-            return 'Y-m-d H:i';
+        if ($this->config->get('plugins.translate-date.processor') === 'intl') {
+            return \Locale::getDefault();
         }
 
-        return $formats[$language] ?? (string)$formats[$language] :: null;
+        return 'en';
     }
 
     /**
-     * @param DateTime    $date
-     * @param string|null $language
-     * @param string|null $format
+     * @param string $language
      *
      * @return string
      */
-    protected function translateDateIntl(DateTime $date, ?string $language = null, ?string $format = null): string
+    protected function getFormat(string $language): string
+    {
+        $formats = $this->config->get('plugins.translate-date.formats', []);
+
+        if (!empty($formats[$language])) {
+            return (string)$formats[$language];
+        }
+
+        if ($this->config->get('plugins.translate-date.processor') === 'intl') {
+            $formatter = \IntlDateFormatter::create(
+                $language,
+                \IntlDateFormatter::NONE,
+                \IntlDateFormatter::NONE
+            );
+
+            return $formatter->getPattern();
+        }
+
+        return 'Y-m-d H:i';
+    }
+
+    /**
+     * @param DateTime $date
+     * @param string   $locale
+     * @param string   $format
+     *
+     * @return string
+     */
+    protected function translateDateIntl(DateTime $date, string $locale, string $format): string
     {
         try {
             $formatter = \IntlDateFormatter::create(
-                $language ?? \Locale::getDefault(),
+                $locale,
                 \IntlDateFormatter::NONE,
                 \IntlDateFormatter::NONE,
                 \IntlTimeZone::createTimeZone($date->getTimezone()->getName()),
@@ -112,7 +133,11 @@ class FilterTd
 
             return $formatter->format($date->getTimestamp());
         } catch (\Exception $exception) {
-            return $date->format($this->getFormat($language));
+            $language_parts = explode('_', $locale);
+
+            return $date->format(
+                $this->getFormat(reset($language_parts))
+            );
         }
     }
 
@@ -123,9 +148,9 @@ class FilterTd
      *
      * @return string
      */
-    protected function translateDateBasic(DateTime $date, ?string $language = null, ?string $format = null): string
+    protected function translateDateBasic(DateTime $date, string $language, string $format): string
     {
-        $languages    = $language ? [$language] : null;
+        $languages    = [$language];
         $replacements = $this->getReplacements($date, $format, $languages);
 
         if (empty($replacements)) {
@@ -143,7 +168,7 @@ class FilterTd
                 continue;
             }
 
-            $format = substr_replace($format, $index, $pos, strlen($data['char']));
+            $format = (string)substr_replace($format, $index, $pos, strlen($data['char']));
         }
 
         return str_replace(
@@ -154,13 +179,13 @@ class FilterTd
     }
 
     /**
-     * @param DateTime   $date
-     * @param string     $format
-     * @param array|null $languages
+     * @param DateTime $date
+     * @param string   $format
+     * @param array    $languages
      *
      * @return array
      */
-    protected function getReplacements(DateTime $date, string $format, ?array $languages): array
+    protected function getReplacements(DateTime $date, string $format, array $languages): array
     {
         $replacements = [];
 

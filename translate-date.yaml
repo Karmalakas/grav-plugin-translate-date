@@ -1,5 +1,5 @@
 enabled: true
-processor: basic # Can also be `intl`
+processor: basic # `basic|intl`
 formats:
   en: 'm/d/Y h:mA'
   lt: 'Y-m-d H:i'

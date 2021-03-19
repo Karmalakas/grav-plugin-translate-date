@@ -1,23 +1,32 @@
+# v0.2.2
+##  20-03-2021
+
+1. [](#bugfix)
+   * Fix how language is parsed if not provided
+2. [](#improved)
+   * Update README
+   * Prepare for a release to submit to GPM
+
 # v0.2.1
-##  03/11/2021
+##  11-03-2021
 
 1. [](#bugfix)
    * Fix getting custom format for Intl
 
 # v0.2.0
-##  03/11/2021
+##  11-03-2021
 
 1. [](#new)
-    * Add Intl support (may choose via config)
+   * Add Intl support (may choose via config)
 
 # v0.1.1
-##  03/09/2021
+##  09-03-2021
 
 1. [](#bugfix)
    * Fallback to `GRAV.` translation if custom translation not found
 
 # v0.1.0
-##  03/08/2021
+##  08-03-2021
 
 1. [](#new)
-    * ChangeLog started...
+   * ChangeLog started...
