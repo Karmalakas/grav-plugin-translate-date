@@ -1,3 +1,9 @@
+# v0.2.3
+##  21-06-2021
+
+1. [](#bugfix)
+   * Fix default EN datetime format
+
 # v0.2.2
 ##  20-03-2021
 
