@@ -1,7 +1,7 @@
 name: Translate Date
 slug: translate-date
 type: plugin
-version: 0.2.2
+version: 0.2.3
 description: Define date formats for each language and easily use for dates in your templates
 icon: calendar
 author:
