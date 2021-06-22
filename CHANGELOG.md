@@ -1,3 +1,11 @@
+# v0.2.4
+##  22-06-2021
+
+1. [](#bugfix)
+   * Fix README link
+1. [](#new)
+   * Add demo page link
+
 # v0.2.3
 ##  21-06-2021
 
