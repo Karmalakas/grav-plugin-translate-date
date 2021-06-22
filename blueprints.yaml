@@ -10,7 +10,7 @@ keywords: grav, plugin, date, translation, languages, multi-language
 homepage: https://github.com/Karmalakas/grav-plugin-translate-date
 bugs: https://github.com/Karmalakas/grav-plugin-translate-date/issues
 docs: https://github.com/Karmalakas/grav-plugin-translate-date/blob/main/README.md
-demo: https://www.karmalakas.lt/grav-plugins-demos/home/translate-date
+demo: https://www.karmalakas.lt/grav-plugins-demos/translate-date
 license: MIT
 
 dependencies:
