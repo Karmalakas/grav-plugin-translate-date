@@ -20,12 +20,30 @@ form:
   validation: loose
   fields:
     enabled:
-      type: toggle
       label: PLUGIN_ADMIN.PLUGIN_STATUS
+      type: toggle
       highlight: 1
       default: 0
       options:
-        1: PLUGIN_ADMIN.ENABLED
         0: PLUGIN_ADMIN.DISABLED
+        1: PLUGIN_ADMIN.ENABLED
       validate:
         type: bool
+
+    processor:
+      label: Processor
+      type: toggle
+      highlight: basic
+      default: basic
+      options:
+        basic: basic
+        intl: intl
+      validate:
+        type: string
+
+    formats:
+      label: Formats
+      type: array
+      placeholder_key: Language
+      placeholder_value: Format
+      required: true
