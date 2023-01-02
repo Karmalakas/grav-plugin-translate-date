@@ -1,3 +1,10 @@
+de:
+  PLUGIN_TRANSLATE_DATE:
+    F: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']
+    M: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez']
+    l: ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag']
+    D: ['Mon', 'Die', 'Mit', 'Don', 'Fre', 'Sam', 'Son']
+
 en:
   PLUGIN_TRANSLATE_DATE:
     F: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
