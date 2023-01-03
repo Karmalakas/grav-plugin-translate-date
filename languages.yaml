@@ -5,12 +5,24 @@ de:
     l: ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag']
     D: ['Mon', 'Die', 'Mit', 'Don', 'Fre', 'Sam', 'Son']
 
+    PROCESSOR: Prozessor
+    DEFAULT_FORMATS: Standard-Formate
+    DEFAULT_FORMATS_HELP: Standard-Format für Datum und Uhrzeit in der jeweiligen Sprache.
+    PLACEHOLDER_KEY: Sprache
+    PLACEHOLDER_VALUE: Format
+
 en:
   PLUGIN_TRANSLATE_DATE:
     F: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     M: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     l: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     D: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+
+    PROCESSOR: Processor
+    DEFAULT_FORMATS: Default formats
+    DEFAULT_FORMATS_HELP: Default format for date and time in the according language.
+    PLACEHOLDER_KEY: Language
+    PLACEHOLDER_VALUE: Format
 
 lt:
   PLUGIN_TRANSLATE_DATE:

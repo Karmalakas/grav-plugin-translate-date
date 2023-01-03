@@ -32,7 +32,7 @@ form:
 
     processor:
       type: toggle
-      label: Processor
+      label: PLUGIN_TRANSLATE_DATE.PROCESSOR
       highlight: basic
       default: basic
       options:
@@ -42,8 +42,9 @@ form:
         type: string
 
     formats:
-      label: Formats
       type: array
-      placeholder_key: Language
-      placeholder_value: Format
+      label: PLUGIN_TRANSLATE_DATE.DEFAULT_FORMATS
+      help: PLUGIN_TRANSLATE_DATE.DEFAULT_FORMATS_HELP
+      placeholder_key: PLUGIN_TRANSLATE_DATE.PLACEHOLDER_KEY
+      placeholder_value: PLUGIN_TRANSLATE_DATE.PLACEHOLDER_VALUE
       required: true
