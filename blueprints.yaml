@@ -20,19 +20,19 @@ form:
   validation: loose
   fields:
     enabled:
-      label: PLUGIN_ADMIN.PLUGIN_STATUS
       type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
       highlight: 1
       default: 0
       options:
-        0: PLUGIN_ADMIN.DISABLED
         1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
 
     processor:
-      label: Processor
       type: toggle
+      label: Processor
       highlight: basic
       default: basic
       options:
