@@ -32,7 +32,7 @@ form:
 
     processor:
       type: toggle
-      label: PLUGIN_TRANSLATE_DATE.PROCESSOR
+      label: Processor
       highlight: basic
       default: basic
       options:
@@ -43,8 +43,8 @@ form:
 
     formats:
       type: array
-      label: PLUGIN_TRANSLATE_DATE.DEFAULT_FORMATS
-      help: PLUGIN_TRANSLATE_DATE.DEFAULT_FORMATS_HELP
-      placeholder_key: PLUGIN_TRANSLATE_DATE.PLACEHOLDER_KEY
-      placeholder_value: PLUGIN_TRANSLATE_DATE.PLACEHOLDER_VALUE
+      label: Default formats
+      help: Default format for date and time in the according language.
+      placeholder_key: Language
+      placeholder_value: Format
       required: true
