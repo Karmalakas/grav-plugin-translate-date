@@ -55,6 +55,7 @@ Here is the default configuration and an explanation of available options:
 enabled: true
 processor: basic    # `basic|intl`
 formats:
+  de: 'd.m.Y H:i'
   en: 'm/d/Y h:mA'
   lt: 'Y-m-d H:i'
 ```
@@ -93,7 +94,3 @@ You should now have all the plugin files under
 
 If you use the Admin Plugin, you can install the plugin directly by browsing the `Plugins`-menu and clicking on
 the `Add` button.
-
-## To Do
-
-- [ ] Configure defaults through Admin

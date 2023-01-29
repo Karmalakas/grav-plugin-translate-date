@@ -1,7 +1,7 @@
 name: Translate Date
 slug: translate-date
 type: plugin
-version: 0.2.4
+version: 0.3.0
 icon: calendar
 author:
   name: Karmalakas
