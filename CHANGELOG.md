@@ -1,3 +1,12 @@
+# v0.3.0
+##  29-01-2023
+
+1. [](#new)
+   * Add German translations for formats
+   * Add defaults config UI to Admin
+2. [](#improved)
+   * Update README
+
 # v0.2.4
 ##  22-06-2021
 
