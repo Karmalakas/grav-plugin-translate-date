@@ -18,3 +18,9 @@ lt:
     M: ['Sau', 'Vas', 'Kov', 'Bal', 'Geg', 'Bir', 'Lie', 'Rgp', 'Rgs', 'Spa', 'Lap', 'Gru']
     l: ['Pirmadienis', 'Antradienis', 'Trečiadienis', 'Ketvirtadienis', 'Penktadienis', 'Šeštadienis', 'Sekmadienis']
     D: ['Pir', 'Ant', 'Tre', 'Ket', 'Pen', 'Šeš', 'Sek']
+cs:
+  PLUGIN_TRANSLATE_DATE:
+    F: ['ledna', 'února', 'března', 'dubna', 'května', 'června', 'července', 'srpna', 'zaří', 'října', 'listopadu', 'prosince']
+    M: ['led', 'úno', 'bře', 'dub', 'kvě', 'čer', 'čvc', 'srp', 'zář', 'říj', 'lis', 'pro']
+    l: ['pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota', 'neděle']
+    D: ['po', 'út', 'st', 'čt', 'pá', 'so', 'ne']
