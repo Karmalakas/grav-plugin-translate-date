@@ -4,6 +4,6 @@ formats:
   cs: 'd.m.Y H:i'
   de: 'd.m.Y H:i'
   en: 'm/d/Y h:iA'
-  lt: 'Y-m-d H:i'
   es: 'd/m/Y H:i'
   id: 'd/m/Y H:i'
+  lt: 'Y-m-d H:i'

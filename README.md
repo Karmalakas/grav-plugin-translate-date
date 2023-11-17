@@ -53,12 +53,14 @@ Here is the default configuration and an explanation of available options:
 
 ```yaml
 enabled: true
-processor: basic    # `basic|intl`
+processor: basic # `basic|intl`
 formats:
+  cs: 'd.m.Y H:i'
   de: 'd.m.Y H:i'
-  en: 'm/d/Y h:mA'
-  lt: 'Y-m-d H:i'
+  en: 'm/d/Y h:iA'
+  es: 'd/m/Y H:i'
   id: 'd/m/Y H:i'
+  lt: 'Y-m-d H:i'
 ```
 
 Note that if you use the Admin Plugin, a file with your configuration named translate-date.yaml will be saved in
