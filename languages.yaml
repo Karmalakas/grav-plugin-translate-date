@@ -1,3 +1,9 @@
+cs:
+  PLUGIN_TRANSLATE_DATE:
+    F: ['ledna', 'února', 'března', 'dubna', 'května', 'června', 'července', 'srpna', 'zaří', 'října', 'listopadu', 'prosince']
+    M: ['led', 'úno', 'bře', 'dub', 'kvě', 'čer', 'čvc', 'srp', 'zář', 'říj', 'lis', 'pro']
+    l: ['pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota', 'neděle']
+    D: ['po', 'út', 'st', 'čt', 'pá', 'so', 'ne']
 de:
   PLUGIN_TRANSLATE_DATE:
     F: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']
