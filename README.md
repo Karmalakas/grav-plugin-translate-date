@@ -58,6 +58,7 @@ formats:
   de: 'd.m.Y H:i'
   en: 'm/d/Y h:mA'
   lt: 'Y-m-d H:i'
+  id: 'd/m/Y H:i'
 ```
 
 Note that if you use the Admin Plugin, a file with your configuration named translate-date.yaml will be saved in

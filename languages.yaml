@@ -24,3 +24,10 @@ lt:
     M: ['Sau', 'Vas', 'Kov', 'Bal', 'Geg', 'Bir', 'Lie', 'Rgp', 'Rgs', 'Spa', 'Lap', 'Gru']
     l: ['Pirmadienis', 'Antradienis', 'Trečiadienis', 'Ketvirtadienis', 'Penktadienis', 'Šeštadienis', 'Sekmadienis']
     D: ['Pir', 'Ant', 'Tre', 'Ket', 'Pen', 'Šeš', 'Sek']
+
+id:
+  PLUGIN_TRANSLATE_DATE:
+    F: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
+    M: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agus', 'Sep', 'Oct', 'Nov', 'Dec']
+    l: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Ahad']
+    D: ['Snn', 'Sls', 'Rbu', 'Kms', 'Jmt', 'Sbt', 'Ahd']
