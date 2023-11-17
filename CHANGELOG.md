@@ -1,3 +1,13 @@
+# v0.4.0
+##  17-11-2023
+
+1. [](#new)
+   * Add Czech translations for formats
+   * Add Indonesian translations for formats
+   * Add Spanish translations for formats
+2. [](#improved)
+   * Update README
+
 # v0.3.0
 ##  29-01-2023
 
