@@ -1,6 +1,7 @@
 enabled: true
 processor: basic # `basic|intl`
 formats:
+  cs: 'd.m.Y H:i'
   de: 'd.m.Y H:i'
   en: 'm/d/Y h:iA'
   lt: 'Y-m-d H:i'
