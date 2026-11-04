@@ -1,3 +1,9 @@
+# v0.5.0
+##  04-11-2026
+
+1. [](#new)
+   * Add compatibility with Grav 2.0 flag
+
 # v0.4.0
 ##  17-11-2023
 
